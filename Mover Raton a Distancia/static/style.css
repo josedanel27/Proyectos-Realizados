@@ -1,0 +1,89 @@
+body {
+    
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+#fondo {
+    
+    background-color:  #405394;
+    justify-content: center;
+    border: 2px black solid ;
+    border-radius: 25px;
+
+}
+
+#titulo {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    
+}
+
+#BtOpciones {
+    width: 95%;
+    height: 65px;
+    display: flex;
+    border: 2px black solid ;
+    border-radius: 25px;
+    margin: 2%;
+    justify-content: center;
+    background: #A1B7FF;
+}
+
+#BtO {
+    display: flex;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#BtOS{
+    background: #88DB53;
+    color: rgb(255,255,255);
+    border-radius: 30px;
+    width: 100px;
+    font-size: large;
+    
+}
+
+/*Botones de movimiento*/
+
+#BtMovimientos {
+    width: 95%;
+    height: auto;
+    display: inline-block;
+    border: 2px black solid ;
+    border-radius: 25px;
+    margin: 2%;
+    background: #A1B7FF;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    
+}
+
+#RowBoton {
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+
+#BtM {
+    display: flex;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#BtMO {
+    background: #88DB53;
+    color: rgb(255,255,255);
+    border-radius: 30px;
+    width: 150px;
+    height: 45px;
+    font-size: large;
+
+}
+

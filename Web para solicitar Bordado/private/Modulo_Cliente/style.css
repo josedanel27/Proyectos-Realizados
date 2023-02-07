@@ -1,0 +1,267 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+}
+.contenedor{
+    padding: 60px 0;
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    
+}
+
+/*-------header------------*/
+header{
+    width: 100%;
+    height: 250px;
+    background: #232526;
+    background: -webkit-linear-gradient(to right, hsla(210, 3%, 26%, 0.61), hsla(200, 4%, 14%, 0.61)), url(../private/Img/foto-fondo.png);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(210, 3%, 26%, 0.747), hsla(200, 4%, 14%, 0.61)), url(../private/Img/foto-fondo.png); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+}
+
+/*---------------Texto superior------------*/
+.Info_superior{
+    display: flex;
+    width: 90%;
+    margin: auto;
+    padding-bottom: 15px;
+    border-bottom: solid #cccccc;
+}
+
+.Texto_Superior{
+    text-align: left;
+    color: #cccccc;
+    margin: 10px;
+}
+
+/*------Seccion del menu--------*/
+nav{
+    text-align: right;
+    padding: 30px 50px 0 0;
+}
+
+nav > a{
+    color: #cccccc;
+    font-weight: 300;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+nav > a:hover{
+    text-decoration: underline;
+    font-weight: 1000;
+    font-size: 15px;
+    
+}
+
+/*texto de presentacion*/
+header .Texto_Inicio{
+    display: flex;
+    height: 120px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    color: #cccccc;
+}
+
+.Texto_Inicio h1{
+    font-size: 35px;
+}
+
+.Texto_Inicio h3{
+    font-weight: 200;
+    font-size: 20px;
+}
+
+/*Seccion de pie de pagina*/
+footer{
+    position: auto;
+    bottom: 0;
+    background: #535252;
+    padding: 20px 0 20px 0;
+    width: 100%;
+    padding-bottom: 10px;
+}
+
+.titulo-final{
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 80%;
+    border-top: 2px solid white;
+}
+
+main{
+    padding-bottom: 20px;
+}
+
+input{
+    width: 250px;
+    height: 50px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.Input-login{
+    display: flex;
+    justify-content: center;
+}
+
+.Input-login h4{
+    font-size: 20px;
+    color: white;
+}
+
+.Input-login a{
+    color: white;
+    text-align: center;
+}
+/*Seccion de botones para panel principal CLiente*/
+.titulo_botones{
+    text-align: center;
+    font-size: 40px;
+}
+
+.Section_botones{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.botones_inicio1{
+    color: #cccccc;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 10px;
+    background: rgb(25, 25, 179);
+}
+.botones_inicio2{
+    color: #f7f7f7;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 20px;
+    background: rgb(130, 138, 29);
+}
+
+.botones_inicio3{
+    color: #f7f7f7;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 20px;
+    background: rgb(44, 150, 34);
+}
+
+.botones_inicio4{
+    color: #f7f7f7;
+    text-decoration: none;
+    font-size: 25px;
+    padding: 5px 15px;
+    border-radius: 20px;
+    margin: 20px;
+    background: rgb(226, 5, 5);
+}
+
+/*Seccion de formulario de pedido*/
+.contenedor-registro{
+    padding: 60px 0;
+    width: 95%;
+    max-width: 1200px;
+    margin: auto;
+    overflow: hidden;
+    
+}
+
+.contenedor-registro h5{
+    color: rgb(102, 102, 102);
+    font-size: 15px;
+}
+
+input{
+    width: 350px;
+    height: 50px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.Input_register{
+    display: flex;
+    justify-content: center;
+}
+.titulo-registro{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    font-size: 30px;
+}
+
+input[type = 'submit']{
+    background:hsla(200, 94%, 47%, 0.849);
+    cursor: pointer;
+    color: white;
+    width: 150px;
+}
+
+/*Dando tamaño a los select o combo box formulario de registro de pedido*/
+
+select{
+    width: 350px;
+    height: 50px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+/*Formulario de lista de pedidos*/
+.contenedor-tabla{
+    display: inline;
+    text-align: center;   
+}
+
+.titulo_list{
+    padding: 3%;
+}
+.tabl{
+    display: flex;
+    justify-content: center;
+}
+
+table{
+
+    width: 75%;
+    border-collapse: collapse;
+}
+
+th{
+    border: 1px solid rgb(58, 57, 57);
+    width: 10%;
+}
+
+thead{
+    background-color: rgba(5, 204, 5, 0.589);
+}
+
+img{
+    width: 60px;
+    height: 60px;
+}
+
+.detalle_info{
+    color: rgb(85, 84, 84);
+    text-align: left;
+    margin-left: 5%;
+}

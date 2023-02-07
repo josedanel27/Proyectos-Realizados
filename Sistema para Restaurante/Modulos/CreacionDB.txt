@@ -1,0 +1,233 @@
+-- phpMyAdmin SQL Dump
+-- version 5.1.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: localhost
+-- Tiempo de generación: 25-02-2022 a las 22:59:26
+-- Versión del servidor: 10.4.22-MariaDB
+-- Versión de PHP: 8.1.2
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Base de datos: `Sistema_Pedidos`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_DETALLE_ORDEN`
+--
+
+CREATE TABLE `TB_DETALLE_ORDEN` (
+  `ID_ORDEN` int(11) NOT NULL,
+  `ID_PLATO` int(11) NOT NULL,
+  `DETALLE_PLATO` text NOT NULL,
+  `NUM_ITEM` int(11) NOT NULL,
+  `ESTADO` varchar(15) DEFAULT NULL COMMENT 'Llevar control de lo entregado'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `TB_DETALLE_ORDEN`
+--
+
+INSERT INTO `TB_DETALLE_ORDEN` (`ID_ORDEN`, `ID_PLATO`, `DETALLE_PLATO`, `NUM_ITEM`, `ESTADO`) VALUES
+(7, 5, 'VACIO', 1, 'PREPARANDO'),
+(7, 1, 'VACIO', 2, 'PREPARANDO'),
+(7, 3, 'VACIO', 3, 'PREPARANDO'),
+(7, 2, 'VACIO', 4, 'PREPARANDO'),
+(7, 4, 'VACIO', 5, 'PREPARANDO'),
+(7, 6, 'VACIO', 6, 'PREPARANDO'),
+(7, 6, 'VACIO', 7, 'PREPARANDO'),
+(8, 1, 'VACIO', 8, 'PREPARANDO'),
+(8, 2, 'VACIO', 9, 'PREPARANDO');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_MENU`
+--
+
+CREATE TABLE `TB_MENU` (
+  `ID_PLATO` int(11) NOT NULL,
+  `NOMBRE_PLATO` varchar(50) NOT NULL,
+  `TIPO_PLATO` int(11) NOT NULL,
+  `PRECIO` float NOT NULL,
+  `DETALLE_PLATO` text DEFAULT NULL,
+  `ESTADO_PLATO` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `TB_MENU`
+--
+
+INSERT INTO `TB_MENU` (`ID_PLATO`, `NOMBRE_PLATO`, `TIPO_PLATO`, `PRECIO`, `DETALLE_PLATO`, `ESTADO_PLATO`) VALUES
+(1, 'Hamburguesa con queso', 2, 7.5, 'Incluye papas alidas y soda', 'Activo'),
+(2, 'Soda', 4, 1, '', 'Activo'),
+(3, 'Burger Cheese', 2, 4.55, 'No incluye acompañamiento.', 'Activo'),
+(4, 'Coca cola en lata', 4, 1.5, 'Bebida carbonatada', 'Activo'),
+(5, 'Pan con ajó', 1, 2.25, 'Tiene mantequilla y ajo tostadas', 'Activo'),
+(6, 'Pie de piña', 3, 3, 'Pai de piña de 4plg', 'Activo');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_ORDEN`
+--
+
+CREATE TABLE `TB_ORDEN` (
+  `ID_ORDEN` int(11) NOT NULL,
+  `NOMBRE_CLIENTE` varchar(40) NOT NULL,
+  `NUM_MESA` int(11) NOT NULL,
+  `MONTO_CUENTA` float NOT NULL,
+  `ID_MESERO` int(11) NOT NULL,
+  `ESTADO` varchar(10) NOT NULL,
+  `FECHA` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `TB_ORDEN`
+--
+
+INSERT INTO `TB_ORDEN` (`ID_ORDEN`, `NOMBRE_CLIENTE`, `NUM_MESA`, `MONTO_CUENTA`, `ID_MESERO`, `ESTADO`, `FECHA`) VALUES
+(6, 'Esmeralda Agudo', 4, 4.5, 3, 'TERMINADO', '2022-02-23'),
+(7, 'Esmeralda Aguirre', 2, 22.8, 3, 'Preparando', '2022-02-23'),
+(8, 'Jose Peñalba', 100, 8.5, 3, 'Preparando', '2022-02-23');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `TB_USUARIO`
+--
+
+CREATE TABLE `TB_USUARIO` (
+  `NOMBRE_TRABAJADOR` varchar(70) NOT NULL,
+  `ID_TRABAJADOR` int(11) NOT NULL,
+  `USERNAME` varchar(30) NOT NULL,
+  `CONTRASENIA` varchar(30) NOT NULL,
+  `PUESTO` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `TB_USUARIO`
+--
+
+INSERT INTO `TB_USUARIO` (`NOMBRE_TRABAJADOR`, `ID_TRABAJADOR`, `USERNAME`, `CONTRASENIA`, `PUESTO`) VALUES
+('JOSE PEÑALBA', 1, 'jp27', '123456789', 3),
+('Francisco Henderson', 2, 'fh04', '12345', 2),
+('Luis Vega', 3, 'LV21', '1245', 1),
+('Esteban Valdez', 4, 'evaldez05', 'contrasenia', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura Stand-in para la vista `VISTACOCINA`
+-- (Véase abajo para la vista actual)
+--
+CREATE TABLE `VISTACOCINA` (
+`ID_ORDEN` int(11)
+,`NOMBRE_CLIENTE` varchar(40)
+,`NUM_MESA` int(11)
+,`NOMBRE_TRABAJADOR` varchar(70)
+,`NOMBRE_PLATO` varchar(50)
+,`DETALLE_PLATO` text
+,`NUM_ITEM` int(11)
+);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura para la vista `VISTACOCINA`
+--
+DROP TABLE IF EXISTS `VISTACOCINA`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `VISTACOCINA`  AS SELECT `ORD`.`ID_ORDEN` AS `ID_ORDEN`, `ORD`.`NOMBRE_CLIENTE` AS `NOMBRE_CLIENTE`, `ORD`.`NUM_MESA` AS `NUM_MESA`, `USR`.`NOMBRE_TRABAJADOR` AS `NOMBRE_TRABAJADOR`, `MEN`.`NOMBRE_PLATO` AS `NOMBRE_PLATO`, `DETA`.`DETALLE_PLATO` AS `DETALLE_PLATO`, `DETA`.`NUM_ITEM` AS `NUM_ITEM` FROM (((`TB_ORDEN` `ORD` join `TB_USUARIO` `USR`) join `TB_MENU` `MEN`) join `TB_DETALLE_ORDEN` `DETA`) WHERE `ORD`.`ID_MESERO` = `USR`.`ID_TRABAJADOR` AND `DETA`.`ID_ORDEN` = `ORD`.`ID_ORDEN` AND `DETA`.`ID_PLATO` = `MEN`.`ID_PLATO` ;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `TB_DETALLE_ORDEN`
+--
+ALTER TABLE `TB_DETALLE_ORDEN`
+  ADD PRIMARY KEY (`NUM_ITEM`),
+  ADD KEY `Orden_TB_ORDEN_TB_DETALLE_ORDEN` (`ID_ORDEN`),
+  ADD KEY `PLATO_TB_MENU_TB_ORDEN_DETALLE` (`ID_PLATO`);
+
+--
+-- Indices de la tabla `TB_MENU`
+--
+ALTER TABLE `TB_MENU`
+  ADD PRIMARY KEY (`ID_PLATO`);
+
+--
+-- Indices de la tabla `TB_ORDEN`
+--
+ALTER TABLE `TB_ORDEN`
+  ADD PRIMARY KEY (`ID_ORDEN`),
+  ADD KEY `Mesero_TB_Usuario_TB_Orden` (`ID_MESERO`);
+
+--
+-- Indices de la tabla `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  ADD PRIMARY KEY (`ID_TRABAJADOR`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `TB_DETALLE_ORDEN`
+--
+ALTER TABLE `TB_DETALLE_ORDEN`
+  MODIFY `NUM_ITEM` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_MENU`
+--
+ALTER TABLE `TB_MENU`
+  MODIFY `ID_PLATO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_ORDEN`
+--
+ALTER TABLE `TB_ORDEN`
+  MODIFY `ID_ORDEN` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de la tabla `TB_USUARIO`
+--
+ALTER TABLE `TB_USUARIO`
+  MODIFY `ID_TRABAJADOR` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Restricciones para tablas volcadas
+--
+
+--
+-- Filtros para la tabla `TB_DETALLE_ORDEN`
+--
+ALTER TABLE `TB_DETALLE_ORDEN`
+  ADD CONSTRAINT `Orden_TB_ORDEN_TB_DETALLE_ORDEN` FOREIGN KEY (`ID_ORDEN`) REFERENCES `TB_ORDEN` (`ID_ORDEN`),
+  ADD CONSTRAINT `PLATO_TB_MENU_TB_ORDEN_DETALLE` FOREIGN KEY (`ID_PLATO`) REFERENCES `TB_MENU` (`ID_PLATO`);
+
+--
+-- Filtros para la tabla `TB_ORDEN`
+--
+ALTER TABLE `TB_ORDEN`
+  ADD CONSTRAINT `Mesero_TB_Usuario_TB_Orden` FOREIGN KEY (`ID_MESERO`) REFERENCES `TB_USUARIO` (`ID_TRABAJADOR`);
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

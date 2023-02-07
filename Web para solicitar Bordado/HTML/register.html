@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content = "width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content = "ie_edge"> 
+        <title>REGISTRO | Bordados S.A.</title>
+        <link rel="shortcut icon" href="img/logoB.png" type="image/x.icon">
+        <link rel="stylesheet" href="disenio.css">
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <header>
+            <div class = "Info_superior">
+                <div class = "Texto_Superior">
+                    <p><br>(+507) 000-0000, 0000-0000</p>
+                </div>
+
+                <div class = "Texto_Superior">
+                    <p><br>Info@Bordados.com.pa</p>
+                </div>
+            </div>
+            
+            <nav>
+                <a href="index.html">INICIO</a>
+                <a href="">PRODUCTOS</a>
+                <a href="Login.html">LOGIN</a>
+                <a href="register.html">REGISTRO</a>
+            </nav>
+
+            <div class = "Texto_Inicio">
+                <h1>Bienvenido a Bordados S.A.</h1>
+                <h3>Nos dedicamos crear productos que te hagan sentir parte de tu asociacion o institución!</h3>
+            </div>
+        </header>
+        
+
+        <main>
+            <section class="contenedor-registro">
+                
+                <h2 class = "titulo-registro">Formulario de registro</h2>
+                <h4>Los siguientes datos se registrarán dentro de nuestra base de datos.
+                <br> Por favor ser coherente!
+                </h4>
+                <br><h4>Llene los espacios con la información requerida!</h4> <br>
+                
+
+                <div class="Input_register">
+                    
+                    <form action="registro.php" method="POST">
+                        <h5>Introduzca su nombre:</h5>
+                        <input type="text" name="nombre" placeholder="Nombre">
+                        <h5>Introduzca su apellido:</h5>
+                        <input type="text" name="apellido" placeholder="Apellido">
+                        <h5>Introduzca su numero de indentidad personal:</h5>
+                        <input type="text" name="cedula" placeholder="Cedula">
+                        <h5>Introduzca su numero telefonico de contacto:</h5>
+                        <input type="text" name="telefono" placeholder="Telefono">
+                        <h5>Introduzca su dirección de correo electronico:</h5>
+                        <input type="text" name="email" placeholder="Email">
+                        <h5>Introduzca un nombre de usuario(Sera necesario para ingresar al sistema):</h5>
+                        <input type="text" name="username" placeholder="Nombre de usuario">
+                        <h5>Introduzca un Contraseña para su nombre de usuario:</h5>
+                        <input type="text" name="password" placeholder="Contraseña">
+                        <h5>Introduzca su año de nacimiento:</h5>
+                        <input type="text" name="anio" placeholder="Año de nacimiento"> <br><br>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <h2 class="titulo-final">Copyright &copy; 2021 | Bordados S.A. Todos los derechos reservados.</h2>
+        </footer>
+    </body>
+</html>

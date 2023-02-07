@@ -1,0 +1,6 @@
+INSERT INTO `tb_usuario` (`ID_usuario`, `Nombre`, `Apellido`, `Cedula`, `Telefono`, `email`, `username`, `contrasenia`, `anio_nacimiento`, `Type_Us`) VALUES (NULL, 'Jose', 'Peñalba', '15-14-1857', '78-075-85', 'jose@desarrollo.com', 'admin01', 'holaquehace', '1999', '10');
+
+consulta en codigo php:
+$sql = "INSERT INTO `tb_usuario` (`ID_usuario`, `Nombre`, `Apellido`, `Cedula`, `Telefono`, `email`, `username`, `contrasenia`, `anio_nacimiento`, `Type_Us`) VALUES (NULL, \'Jose\', \'Peñalba\', \'15-14-1857\', \'78-075-85\', \'jose@desarrollo.com\', \'admin01\', \'holaquehace\', \'1999\', \'10\');";
+
+INSERT INTO tb_usuario (ID_usuario, Nombre, Apellido, Cedula, Telefono, email, username, contrasenia, anio_nacimiento, Type_Us) VALUES (NULL, 'Nelson', 'Buitrago', '15-14-1885', '78-075-25', 'nelson@desarrollo.com', 'admin02', 'holaquehace2', '1998', '10');
