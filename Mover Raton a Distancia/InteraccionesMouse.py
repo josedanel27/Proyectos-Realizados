@@ -40,7 +40,6 @@ class Control():
         elif(boton == 2):
             move.click(x, y, 1, 0.4, 'right')
         
-        print(f"x: {x} || y: {y}")
 
     def Scroll(opcion):
         #Opcion para bajar
@@ -50,4 +49,3 @@ class Control():
         elif (opcion == 2):
             move.scroll(-100, 200, 120)
 
-    

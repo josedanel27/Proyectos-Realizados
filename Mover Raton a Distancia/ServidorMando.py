@@ -2,14 +2,21 @@
 from flask import Flask, render_template
 from flask import jsonify
 from InteraccionesMouse import Control
+import socket as sk
 
-con = Control
+#Heredadando las clases
+con = Control  #Control del cursos
+
+#Obteniendo ip de maquina para enviar al frontend
+ip = sk.gethostbyname(sk.gethostname())
+#print(ip)
 
 app = Flask(__name__)
 
 @app.route('/')
 def Control():
-    return render_template('index.html')
+    data = {'ip': f'{ip}'}
+    return render_template('index.html', data=data)
 
 @app.route('/api/arriba/')
 def arriba():
@@ -37,7 +44,7 @@ def izquier():
 
 @app.route('/api/ok/')
 def clic():
-    con.Click()
+    con.Click(1)
     resp = {'mensaje':'Correcto'}
     return jsonify(resp)
 
