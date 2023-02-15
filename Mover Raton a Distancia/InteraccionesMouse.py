@@ -21,21 +21,21 @@ import pyautogui as move
 class Control():
 
     def Subir():
-        move.moveRel(-10, 0, 0.3)
+        move.moveRel(0, 20, 0.3)
 
     def Bajar():
-        move.moveRel(10, 0, 0.3)
+        move.moveRel(0, -20, 0.3)
 
     def Derecha():
-        move.moveRel(0, 10, 0.3)
+        move.moveRel(20, 0, 0.3)
 
     def Izquierda():
-        move.moveRel(0, -10, 0.3)
+        move.moveRel(-20, 10, 0.3)
 
     def Click(boton):
         x, y = move.position()
         if(boton == 1):
-            move.click(x, y, 1, 0.4)
+            move.click(x, y, 1, 0.6)
         
         elif(boton == 2):
             move.click(x, y, 1, 0.4, 'right')
