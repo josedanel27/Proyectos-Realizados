@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}Inicio{% endblock title %}
+
+{% block content %}
+
+<div class="conteiner" style="position: relative; text-align: center;">
+
+    <img src="{{ url_for("static", filename="img/Principal.jpg")}}" style="width: 100%; height: 550px; filter: brightness(0.5)">
+    <div class="conteiner" style="ustify-content-center; align-items-center">
+        <h1 class="text-white" style="position: absolute; top: 40%; left: 20%; font-size: 70px">
+            Software de monitoreo de basureros
+        </h1>
+    </div>
+</div>
+
+<div class="d-grid gap-2" style="width: 40%; margin-top: 30px; align-items:center; margin-left: auto; margin-right: auto">
+    <a href="/Login" style="width: 40%; margin-top: 30px; align-items:center; margin-left: auto; margin-right: auto">
+        <button class="btn btn-success" type="button" style="font-size: 25px">Iniciar Sesion</button> 
+    </a>
+</div>
+
+
+{% endblock content %}
+

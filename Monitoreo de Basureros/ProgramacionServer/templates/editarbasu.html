@@ -1,0 +1,36 @@
+{% extends "layout2.html" %}
+{% block title2 %}Ajustes{% endblock title2 %}
+{% block title %}Editar basureros{% endblock title %}
+{% block usuario %}{{usuario}}{% endblock usuario %}
+
+{% block content %}
+<form action="/editbasu" method="POST" class="row g-3">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Ubicación</label>
+        <input type="text" class="form-control" name="ubicacion" value="{{basurero[0][1]}}">
+      </div>
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Cantidad de contenedores</label>
+        <input type="text" class="form-control" name="contenedores" value="{{basurero[0][4]}}">
+      </div>
+      <div class="col-12">
+        <label for="inputPassword4" class="form-label">Coordenadas</label>
+        <input type="text" class="form-control" name="coordenadas" value="{{basurero[0][2]}}">
+      </div>
+      <div class="col-md-4">
+        <label for="inputState" class="form-label">Tipo</label>
+        <select name="tipo" class="form-select">
+          {% if basurero[0][3] == 1 %}
+          <option>Normal</option>
+          <option selected>Reciclaje</option>
+          {% else %}
+          <option selected>Normal</option>
+          <option>Reciclaje</option>
+          {% endif %}
+        </select>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" name="basu" value="{{id}}">Guardar</button>
+      </div>
+</form>
+{% endblock content %}

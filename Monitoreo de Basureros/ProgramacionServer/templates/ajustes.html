@@ -1,0 +1,122 @@
+{% extends "layout2.html" %}
+
+{% block title2 %}Ajustes{% endblock title2 %}
+{% block title %}Ajustes de la app{% endblock title %}
+{% block usuario %}{{usr}}{% endblock usuario %}
+
+{% block content %}
+<div>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#PlusUse" aria-expanded="false" aria-controls="collapseExample">
+            Nuevo Usuario
+        </button>
+    </p>
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#EditUse" aria-expanded="false" aria-controls="collapseExample">
+            Editar o Borrar Usuario
+        </button>
+    </p> 
+    <p class="d-inline-flex gap-1">
+        <button class="btn btn-danger" type="button" data-bs-toggle="collapse" data-bs-target="#Conexion" aria-expanded="false" aria-controls="collapseExample">
+            Añadir basurero
+        </button>
+    </p> 
+    <div class="collapse" id="PlusUse">
+        <div class="card card-body">
+            <h5>Formulario para nuevo Usuario</h5>
+            <form action="/AccionAjuste" method="POST" class="row g-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Nombre Completo</label>
+                    <input type="text" class="form-control" name="nombre">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Nombre de inicio de sesión</label>
+                    <input type="text" class="form-control" name="username">
+                  </div>
+                  <div class="col-12">
+                    <label for="inputPassword4" class="form-label">Contaseña</label>
+                    <input type="password" class="form-control" name="passwd" placeholder="86.3452 - 56.2341543">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="inputState" class="form-label">Rol</label>
+                    <select name="rol" class="form-select">
+                      <option selected>Monitor</option>
+                      <option>Admin</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="user">Registrar</button>
+                  </div>
+            </form>
+        </div>
+    </div>
+   
+    <div class="collapse" id="EditUse">
+        <div class="card card-body">
+            <h5> Seleccione el usuario</h5>
+            <div class="table-responsive small">
+                <table class="table table-striped table-sm">
+                    <thead>
+                        <tr>
+                            <th scope="col">Nombre del usuario</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for id, nombre in user %}
+                            <tr>
+                                <td>{{nombre}}</td>
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic mixed styles example">
+                                        <form action='/AccionAjuste' method='POST'>
+            
+                                            <button type="submit" class="btn btn-danger" id="borrar" name="borrar" value="{{id}}">Borrar</button>
+                                        </form>
+                                        <form action='/AccionAjuste' method='POST'>
+                                            <button type="submit" class="btn btn-warning" id="editar" name="editar"value="{{id}}">Editar</button>
+                                        </form>
+                                        
+                                    </div>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse" id="Conexion">
+        <div class="card card-body">
+            <h5>Formulario para nuevo basurero</h5>
+            <form action="/AccionAjuste" method="POST" class="row g-3">
+                <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Ubicación</label>
+                    <input type="text" class="form-control" name="ubicacion">
+                  </div>
+                  <div class="col-md-6">
+                    <label for="inputEmail4" class="form-label">Cantidad de contenedores</label>
+                    <input type="text" class="form-control" name="contenedores">
+                  </div>
+                  <div class="col-12">
+                    <label for="inputPassword4" class="form-label">Coordenadas</label>
+                    <input type="text" class="form-control" name="coordenadas" placeholder="86.3452 - 56.2341543">
+                  </div>
+                  <div class="col-md-4">
+                    <label for="inputState" class="form-label">Tipo</label>
+                    <select name="tipo" class="form-select">
+                      <option selected>Normal</option>
+                      <option>Reciclaje</option>
+                    </select>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-primary" name="basu">Registrar</button>
+                  </div>
+            </form>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

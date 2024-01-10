@@ -1,0 +1,41 @@
+{% extends "layout2.html" %}
+
+{% block title2 %}Nuevo Report{% endblock title2 %}
+{% block title %}Nuevo Reporte{% endblock title %}
+{% block usuario %}{{usr}}{% endblock usuario %}
+
+{% block content %}
+<div>
+    <form action="/addreport" method="POST" class="row g-3">
+        <div class="col-md-6">
+          <label  class="form-label">Titulo del reporte</label>
+          <input type="text" class="form-control" name="titulo">
+        </div>
+        <div class="col-md-6">
+          <label class="form-label">Fecha</label>
+          <input type="date" class="form-control" name="fecha">
+        </div>
+        <div class="col-12">
+          <label for="inputAddress" class="form-label">Descripción de los sucedido</label>
+          <textarea class="form-control" aria-label="With textarea" name="Incidente" placeholder="Problemas con conexion"></textarea>
+        </div>
+        
+        <div class="col-md-4">
+          <label for="inputState" class="form-label">Tipo de Incidente</label>
+          <select name="inputState" class="form-select">
+            <option selected>Elegir...</option>
+            <option>Daño</option>
+            <option>Interferencia</option>
+            <option>Robo</option>
+            <option>Vandalismo</option>
+          </select>
+        </div>
+        <div class="col-12">
+          <button type="submit" class="btn btn-primary">Guardar</button>
+        </div>
+      </form>
+      <br>
+</div>
+
+
+{% endblock content %}
