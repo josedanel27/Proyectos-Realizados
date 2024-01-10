@@ -7,7 +7,7 @@ import pyodbc as db
 server = "0.0.0.0"
 database = "DB_RECOLECCION"
 user = "SA"
-contra = "Albondiga1!"
+contra = "Defualt"
 
 #Creando clase para interactuar con la base de datos
 class conexion:

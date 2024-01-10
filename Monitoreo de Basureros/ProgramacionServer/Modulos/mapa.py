@@ -4,16 +4,6 @@
 import folium
 from folium import plugins
 
-"""
-folium.Marker([8.097398, -80.983130], popup="Parque Central").add_to(map)
-folium.Marker([8.101721, -80.978175], popup="La Normal").add_to(map)
-
-
-ruta = [[8.097398, -80.983130], [8.101721, -80.978175]]
-
-folium.PolyLine(locations=ruta, color="red", weight=15, opacity=0.8, options={"type": "driving"}).add_to(map)
-
-map.save("map.html")"""
 
 #Creando clases para operar con la libreria y el software
 

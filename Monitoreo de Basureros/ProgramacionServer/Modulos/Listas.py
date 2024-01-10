@@ -1,4 +1,4 @@
-#Modulo para acceder a la base de datos y listar los items necesarios
+#Modulo con listas de pruebas
 
 class Listas:
 
